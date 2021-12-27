@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      height: 2000px;
+      scroll-behavior: smooth;
+    }
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    nav {
+      background-color: teal;
+      position: sticky;
+      top: 0;
+    }
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    li {
+      list-style: none;
+      font-size: 35px;
+    }
+    .std {
+      color: red;
+      background-color: black;
+      padding: 10px;
+      transition: all 0.5s;
+    }
+  </style>
+  <body>
+    <nav>
+      <ul>
+        <li id="in">home</li>
+        <li id="inn">About</li>
+        <li id="innn">Alo</li>
+      </ul>
+    </nav>
+    <script>
+      window.addEventListener("scroll", () => {
+        const li1 = document.getElementById("in");
+        const li2 = document.getElementById("inn");
+        const li3 = document.getElementById("innn");
+
+        if (window.pageYOffset > 150 && window.pageYOffset < 299) {
+          //   document.body.style.background = "black";
+          li1.classList.add("std");
+          li2.classList.remove("std");
+          li3.classList.remove("std");
+        } else if (window.pageYOffset > 300 && window.pageYOffset < 490) {
+          //   document.body.style.background = "yellow";
+          li1.classList.remove("std");
+          li2.classList.add("std");
+          li3.classList.remove("std");
+        } else if (window.pageYOffset > 491 && window.pageYOffset < 800) {
+          //   document.body.style.background = "gray";
+          li1.classList.remove("std");
+          li2.classList.remove("std");
+          li3.classList.add("std");
+        } else {
+          document.body.style.background = "white";
+        }
+      });
+    </script>
+  </body>
+</html>
